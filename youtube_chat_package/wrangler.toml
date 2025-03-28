@@ -1,0 +1,34 @@
+name = "youtube-analyzer-web"
+main = "src/index.ts"
+compatibility_date = "2023-12-01"
+
+# Configure D1 database
+[[d1_databases]]
+binding = "DB"
+database_name = "youtube-analyzer-db"
+database_id = "youtube-analyzer-db"
+
+# Configure environment variables
+[vars]
+OPENAI_API_KEY = ""
+SUPABASE_URL = ""
+SUPABASE_KEY = ""
+
+# Configure build settings
+[build]
+command = "npm run build"
+
+# Configure routes
+[routes]
+pattern = "/*"
+zone_name = "youtube-analyzer.pages.dev"
+
+# Configure site settings
+[site]
+bucket = "./public"
+
+# Configure Cloudflare Pages
+[env.production]
+workers_dev = false
+route = "youtube-analyzer.pages.dev/*"
+zone_id = ""
